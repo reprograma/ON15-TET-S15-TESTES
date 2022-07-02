@@ -18,4 +18,22 @@ describe("API test", () => {
                 
             })
         })
+    test("POST /users/create", (done) => {
+        request(app)
+            .post("/users/create")
+            .expect("Content-Type", /json/)
+            .send({
+                name: "Eliza",
+                email: "eliza@email.com",
+                password: "12345"
+            })
+            .expect(201)
+            .end((err, res) =>{
+                if(err) return done(err)
+                return done()
+            })
     })
+    
+
+})
+   
