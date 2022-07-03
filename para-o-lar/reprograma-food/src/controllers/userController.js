@@ -30,7 +30,7 @@ const getUserById = async (req, res) => {
   }
 }
 
-const signup = async (req, res, next) => {
+const signup = async (req, res) => {
   let { name, email, password, role } = req.body
 
   try {
@@ -146,12 +146,20 @@ const updateUser = async (req, res) => {
 }
 
 const deleteById = async (req, res) => {
+  const {id} = req.params
   try {
-    const userId = req.params.id;
+    
+    const deletedUser = await UserSchema.findByIdAndDelete({_id: id})
 
-    const deletedUser = await UserSchema.findByIdAndDelete(userId)
-
-
+    if(!deletedUser) {
+       
+      throw {
+          statusCode: 404,
+          message: "Não encontramos resultados com o id pesquisado.",
+          details: "Em nosso banco de dados, não existem informações compatíveis com essa busca.",
+          query: id
+      }
+  }
     res.status(200).json([{
       "mensagem": "Item deletado com sucesso",
       deletedUser
@@ -166,8 +174,6 @@ const deleteById = async (req, res) => {
 
   }
 }
-
-
 
 module.exports = {
   getUsers,
