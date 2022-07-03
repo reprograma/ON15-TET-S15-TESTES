@@ -20,7 +20,7 @@
 
 <div align = "justify">
 
-Para esse projeto foi criada uma Web API com o tema: [restaurantes](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/tree/BrunaCelestino/para-o-lar/reprograma-food) encontrados na plataforma Ifood. Todos os restaurantes contidos nesse projeto, bem como suas respectivas informações, são reais e estão localizados na cidade de Jacareí - SP. Para armazenamento das informações, foi utilizado o banco de dados MongoDB.   
+Para esse projeto foi criada uma Web API com o tema: [restaurantes](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food) encontrados na plataforma Ifood. Todos os restaurantes contidos nesse projeto, bem como suas respectivas informações, são reais e estão localizados na cidade de Jacareí - SP. Para armazenamento das informações, foi utilizado o banco de dados MongoDB.   
 
 <br>
 
@@ -113,9 +113,9 @@ O servidor, criado dentro da pasta [reprograma-food](https://github.com/BrunaCel
 
 - [database](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/database) - pasta contendo o arquivo: [mongoConfig.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/database/mongoConfig.js). Esse arquivo faz a conexão com o banco de dados; 
 
--[middlewares](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/middlewares), contendo o arquivo [auth.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/middlewares/auth.js), que serve como um meio de garantir que as rotas só possam ser acessadas se o usuário inserir seu token de autorização;
+- [middlewares](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/middlewares), contendo o arquivo [auth.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/middlewares/auth.js), que serve como um meio de garantir que as rotas só possam ser acessadas se o usuário inserir seu token de autorização;
 
--[test](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/test), contendo o arquivo [api.test.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/test/api.test.js), que é uma automação de testes, garantindo que as rotas estejam funcionando, por meio de testes;
+- [test](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/test), contendo o arquivo [api.test.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/test/api.test.js), que é uma automação de testes, garantindo que as rotas estejam funcionando, por meio de testes;
 
 - Outros arquivos e pastas - pasta [assets](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/assets), que contém o logo do projeto, package-lock.json e package.json. que são arquivos relacionados a dependências, .env.example, que informa quais chaves são necessárias para rodar o projeto, .gitignore, informando ao projeto quais arquivos ele não deve fazer upload e README.md, contendo a documentação do projeto.
 
@@ -910,7 +910,7 @@ Com essa rota, é possível criar um novo cardápio, através do body request, d
 <div align = "justify">
 
 1. `GET`: localhost:8099/users/all  
-Com essa rota, é possível se ter acesso a todos os usuários cadastrados, onde é requerido autorização para se ter acesso. Essa autorização é passada através do header, com um token.  
+Com essa rota, é possível se ter acesso a todos os usuários cadastrados.
 <br>
 
 </div>
@@ -918,7 +918,7 @@ Com essa rota, é possível se ter acesso a todos os usuários cadastrados, onde
 <div align = "justify">
 
 2. `GET`: localhost:8099/users/user/:id  
-Com essa rota, é possível se ter acesso a um usuário, por ID, onde é requerido autorização para se ter acesso. Essa autorização é passada através do header, com um token.  
+Com essa rota, é possível se ter acesso a um usuário, por ID.
 <br>
 
 </div>
@@ -927,7 +927,7 @@ Com essa rota, é possível se ter acesso a um usuário, por ID, onde é requeri
 <div align = "justify">
 
 3. `PUT`: localhost:8099/users/update-user/:id  
-Com essa rota, é possível atualizar um usuário, por ID, onde é requerido autorização para se ter acesso. Essa autorização é passada através do header, com um token.  
+Com essa rota, é possível atualizar um usuário, por ID.
 <br>
 
 </div>
@@ -935,7 +935,7 @@ Com essa rota, é possível atualizar um usuário, por ID, onde é requerido aut
 <div align = "justify">
 
 4. `PUT`: localhost:8099/users/delete/:id  
-Com essa rota, é possível deletar um usuário, por ID, onde é requerido autorização para se ter acesso. Essa autorização é passada através do header, com um token.  
+Com essa rota, é possível deletar um usuário, por ID.
 <br>
 
 </div>
@@ -959,10 +959,19 @@ Com essa rota, é possível fazer login, utilizando e-mail e senha. Ao ser feito
 <div align = "justify">
 
 7. `PATCH`: localhost:8099/users/update-password/:id 
-Com essa rota, é possível atualizar a senha de um usuário, por ID, onde é requerido autorização para se ter acesso. Essa autorização é passada através do header, com um token. 
+Com essa rota, é possível atualizar a senha de um usuário, por ID.
 <br>
 
 </div>
+
+## AUTOMAÇÃO DE TESTES
+
+<div align = "justify">
+
+Através das dependências Jest e SuperTest, foi possível realizar a automação dos testes das rotas dos usuários. Jest permite que que vários testes sejam realizados de uma única vez e SuperTest faz com que seja possível testar os métodos HTTP, acessando as rotas criadas e testando as funções atribuídas a elas. Com isso, foi possível assegurar que todas as rotas estejam funcionando. 
+
+</div>
+
 
 
 ##  INFORMAÇÕES TÉCNICAS 
