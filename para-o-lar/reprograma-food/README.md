@@ -1,11 +1,11 @@
-# <div align = "center"> ON15-TET-S14-AUTH </div>
+# <div align = "center"> ON15-TET-S15-TESTES </div>
 
 
 
 
 <div align = "center">
     <p>
-        Turma Online Todas em Tech - Back-end | Semana 14: Aplicar Autenticação // Conhecer Autorização: <b>JWT</b>.
+        Turma Online Todas em Tech - Back-end | Semana 15: Introdução: <b>Automações de Testes</b>.
     </p>
 </div>
 
@@ -42,7 +42,7 @@ Esse projeto foi construído utilizando a arquitetura MVC, acrônimo para Model-
 
 </div>
 
-O servidor, criado dentro da pasta [reprograma-food](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/tree/BrunaCelestino/para-o-lar/reprograma-food), conta com a seguinte estrutura:
+O servidor, criado dentro da pasta [reprograma-food](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food), conta com a seguinte estrutura:
 
 
 ```bash
@@ -90,27 +90,34 @@ O servidor, criado dentro da pasta [reprograma-food](https://github.com/BrunaCel
                     |
                     |   menuRoutes.js
                     |   restaurantesRoutes.js 
-                    |   userRoutes.js 			      
+                    |   userRoutes.js 
+                    |	
+                    📂---test
+                    |
+                    |   api.test.js
+                    |    			      
 
  ```
 
 <div align = "justify">
 
-- [server.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/server.js) - Define onde o servidor local irá ser executado;
+- [server.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/server.js) - Define onde o servidor local irá ser executado;
 
-- [app.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/app.js) - Requere as dependências necessárias para o projeto e define o padrão de cada rota;
+- [app.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/app.js) - Requere as dependências necessárias para o projeto e define o padrão de cada rota;
 
-- [controllers](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/tree/BrunaCelestino/para-o-lar/reprograma-food/src/controllers) - pasta contendo os arquivos: [restaurantesController.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/controllers/restaurantesController.js) e [menuController.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/controllers/menuController.js), que definem, em fuções, o que cada rota deve realizar. [authController.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/controllers/authController.js), que permite que o usuário faça login e [userController.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/controllers/userController.js), que possui funções de criação de usuário, e outras funções relacionadas a ele, como deletar, atualizar e encontrar. 
+- [controllers](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/controllers) - pasta contendo os arquivos: [restaurantesController.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/controllers/restaurantesController.js) e [menuController.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/controllers/menuController.js), que definem, em fuções, o que cada rota deve realizar. [authController.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/controllers/authController.js), que permite que o usuário faça login e [userController.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/controllers/userController.js), que possui funções de criação de usuário, e outras funções relacionadas a ele, como deletar, atualizar e encontrar. 
      
-- [models](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/tree/BrunaCelestino/para-o-lar/reprograma-food/src/models)- pasta contendo os aquivos: [userSchema.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/models/userSchema.js), [RestauranteSchema.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/models/RestauranteSchema.js) e [MenuSchema.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/models/MenuSchema.js), que contêm a formatação que os usuários, restaurantes e cardápios devem seguir; 
+- [models](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/models)- pasta contendo os aquivos: [userSchema.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/models/userSchema.js), [RestauranteSchema.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/models/RestauranteSchema.js) e [MenuSchema.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/models/MenuSchema.js), que contêm a formatação que os usuários, restaurantes e cardápios devem seguir; 
 
-- [routes](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/tree/BrunaCelestino/para-o-lar/reprograma-food/src/routes) - pasta contendo os arquivos: [restaurantesRoutes.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/routes/restaurantesRoutes.js), [menuRoutes.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/routes/menuRoutes.js), [userRoutes.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/routes/userRoutes.js). Esses arquivos acrescentam os complementos às rotas genéricas, fazendo com que elas se tornem completas e possam ser acessadas; 
+- [routes](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/routes) - pasta contendo os arquivos: [restaurantesRoutes.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/routes/restaurantesRoutes.js), [menuRoutes.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/routes/menuRoutes.js), [userRoutes.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/routes/userRoutes.js). Esses arquivos acrescentam os complementos às rotas genéricas, fazendo com que elas se tornem completas e possam ser acessadas; 
 
-- [database](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/tree/BrunaCelestino/para-o-lar/reprograma-food/src/database) - pasta contendo o arquivo: [mongoConfig.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/database/mongoConfig.js). Esse arquivo faz a conexão com o banco de dados; 
+- [database](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/database) - pasta contendo o arquivo: [mongoConfig.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/database/mongoConfig.js). Esse arquivo faz a conexão com o banco de dados; 
 
--[middlewares](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/tree/BrunaCelestino/para-o-lar/reprograma-food/src/middlewares), contendo o arquivo [auth.js](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/src/middlewares/auth.js), que serve como um meio de garantir que as rotas só possam ser acessadas se o usuário inserir seu token de autorização. 
+-[middlewares](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/middlewares), contendo o arquivo [auth.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/middlewares/auth.js), que serve como um meio de garantir que as rotas só possam ser acessadas se o usuário inserir seu token de autorização;
 
-- Outros arquivos e pastas - pasta [assets](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/tree/BrunaCelestino/para-o-lar/reprograma-food/assets), que contém o logo do projeto, package-lock.json e package.json. que são arquivos relacionados a dependências, .env.example, que informa quais chaves são necessárias para rodar o projeto, .gitignore, informando ao projeto quais arquivos ele não deve fazer upload e README.md, contendo a documentação do projeto.
+-[test](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/src/test), contendo o arquivo [api.test.js](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/src/test/api.test.js), que é uma automação de testes, garantindo que as rotas estejam funcionando, por meio de testes;
+
+- Outros arquivos e pastas - pasta [assets](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/tree/BrunaCelestino/para-o-lar/reprograma-food/assets), que contém o logo do projeto, package-lock.json e package.json. que são arquivos relacionados a dependências, .env.example, que informa quais chaves são necessárias para rodar o projeto, .gitignore, informando ao projeto quais arquivos ele não deve fazer upload e README.md, contendo a documentação do projeto.
 
 </div>
 
@@ -978,13 +985,17 @@ Para que fosse possível a execução desse projeto, foi necessária a utilizaç
 
 - [Cors](https://www.npmjs.com/package/cors) - permite que um site acesse recursos de outro site mesmo estando em domínios diferentes;
 
-- [dotenv-safe](https://www.npmjs.com/package/dotenv-safes) - garante que todas as variáveis de ambiente necessárias sejam definidas depois de lidas no arquivo .env;
+- [Dotenv-safe](https://www.npmjs.com/package/dotenv-safes) - garante que todas as variáveis de ambiente necessárias sejam definidas depois de lidas no arquivo .env;
 
-- [mongoose](https://www.npmjs.com/package/mongoose) - Mongoose é uma ferramenta de modelagem de objetos MongoDB projetada para funcionar em um ambiente assíncrono;
+- [Mongoose](https://www.npmjs.com/package/mongoose) - Mongoose é uma ferramenta de modelagem de objetos MongoDB projetada para funcionar em um ambiente assíncrono;
 
-- [bcrypt](https://www.npmjs.com/package/bcrypt) - Bcrypt é uma biblioteca que auxilia na encriptação (hasheamento) de senhas.
+- [Bcrypt](https://www.npmjs.com/package/bcrypt) - Bcrypt é uma biblioteca que auxilia na encriptação (hasheamento) de senhas;
 
-- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) - Jsonwebtoken implementa Json web tokens. 
+- [Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) - Jsonwebtoken implementa Json web tokens;
+
+- [Jest](https://www.npmjs.com/package/jest) - Jest permite que a automação de testes seja realizada;
+
+- [Supertest](https://www.npmjs.com/package/jest) - SuperTest facilita a testagem HTTP.
    
  <br>
 
@@ -994,13 +1005,13 @@ Para que fosse possível a execução desse projeto, foi necessária a utilizaç
 
 <div align = "justify">
 
-- [package-lock.json](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/package-lock.json) - especifica a versão e suas dependências;
+- [package-lock.json](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/package-lock.json) - especifica a versão e suas dependências;
 
 
-- [package.json](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/package.json) - arquivo de configuração utilizado para estipular e configurar dependências;
+- [package.json](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/package.json) - arquivo de configuração utilizado para estipular e configurar dependências;
 
 
-- [.gitignore](https://github.com/BrunaCelestino/ON15-TET-S14-AUTH/blob/BrunaCelestino/para-o-lar/reprograma-food/.gitignore) - arquivo que lista quais arquivos ou pastas o Git deve ignorar.
+- [.gitignore](https://github.com/BrunaCelestino/ON15-TET-S15-TESTES/blob/BrunaCelestino/para-o-lar/reprograma-food/.gitignore) - arquivo que lista quais arquivos ou pastas o Git deve ignorar.
 <br>
 
 </div>
@@ -1012,7 +1023,7 @@ Para que fosse possível a execução desse projeto, foi necessária a utilizaç
 1. Entre na pasta onde você deseja clonar o repositório. Abra o **git** nela e digite: 
 
     ```bash
-    $ git clone https://github.com/BrunaCelestino/ON15-TET-S14-AUTH.git
+    $ git clone https://github.com/BrunaCelestino/ON15-TET-S15-TESTES.git
      ```
 
 2. Digite a linha abaixo para entrar na branch correta: 
