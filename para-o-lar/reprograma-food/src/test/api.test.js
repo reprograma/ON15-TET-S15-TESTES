@@ -19,14 +19,15 @@ describe("API test", () => {
             })
     })
 
-    test("POST /users/create", (done) => {
+    test("POST /users/signup", (done) => {
         request(app)
-            .post("/users/create")
+            .post("/users/signup")
             .expect("Content-Type", /json/)
             .send({
                 name: "Bruna",
-                email: "brunak@gmail.com",
-                password: "Testeteste12@"
+                email: "teste2@gmail.com",
+                password: "Testeteste12@",
+                role: "admin"
 
             })
             .expect(201)
@@ -42,8 +43,8 @@ describe("API test", () => {
             .post("/users/login")
             .expect("Content-Type", /json/)
             .send({
-                email: "brunak@gmail.com",
-                password: "Testeteste12@"
+                email: "teste2@gmail.com",
+                password: "Testeteste12@",
 
             })
             .expect(200)
@@ -53,20 +54,53 @@ describe("API test", () => {
             })
     })
 
-    test("PATCH /users/update/:id", (done) => {
+    test("GET /users/user/:id", (done) => {
         request(app)
-            .patch(`/users/update/${elementId}`)
+            .get(`/users/user/${elementId}`)
+            .expect(200)
+            .expect((res) => {
+                console.log(res.body)
+                expect(res.body.length).not.toBe(0)
+            })
+            .end((err, res) => {
+                if (err) return done(err);
+                return done();
+            })
+    })
+
+    test("PATCH /users/update-password/:id", (done) => {
+        request(app)
+            .patch(`/users/update-password/${elementId}`)
             .expect("Content-Type", /json/)
             .send({
-                name: "Bruneca",
-                email: "bruunak@gmail.com"
+                password: "Kid@belhabk8899"
 
             })
             .expect(200)
             .expect((res) => {
                 expect(res.body.savedUser._id).toBe(elementId);
-                expect(res.body.savedUser.name).toBe("Bruneca");
-                expect(res.body.savedUser.email).toBe("bruunak@gmail.com")
+                expect(res.body.savedUser.name).toBe("Bruna");
+                expect(res.body.savedUser.email).toBe("teste2@gmail.com")
+            })
+            .end((err, res) => {
+                if (err) return done(err);
+                return done();
+            })
+    })
+
+    test("PUT /users/update-user/:id", (done) => {
+        request(app)
+            .put(`/users/update-user/${elementId}`)
+            .expect("Content-Type", /json/)
+            .send({
+                name: "Bruna Kathellyn"
+
+            })
+            .expect(200)
+            .expect((res) => {
+                expect(res.body.user._id).toBe(elementId);
+                expect(res.body.user.name).toBe("Bruna Kathellyn")
+                expect(res.body.user.email).toBe("teste2@gmail.com")
             })
             .end((err, res) => {
                 if (err) return done(err);
