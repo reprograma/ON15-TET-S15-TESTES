@@ -25,7 +25,7 @@ describe("API test", () => {
             .expect("Content-Type", /json/)
             .send({
                 name: "Bruna",
-                email: "teste2@gmail.com",
+                email: "teste4@gmail.com",
                 password: "Testeteste12@",
                 role: "admin"
 
@@ -43,7 +43,7 @@ describe("API test", () => {
             .post("/users/login")
             .expect("Content-Type", /json/)
             .send({
-                email: "teste2@gmail.com",
+                email: "teste4@gmail.com",
                 password: "Testeteste12@",
 
             })
@@ -80,7 +80,7 @@ describe("API test", () => {
             .expect((res) => {
                 expect(res.body.savedUser._id).toBe(elementId);
                 expect(res.body.savedUser.name).toBe("Bruna");
-                expect(res.body.savedUser.email).toBe("teste2@gmail.com")
+                expect(res.body.savedUser.email).toBe("teste4@gmail.com")
             })
             .end((err, res) => {
                 if (err) return done(err);
@@ -100,7 +100,7 @@ describe("API test", () => {
             .expect((res) => {
                 expect(res.body.user._id).toBe(elementId);
                 expect(res.body.user.name).toBe("Bruna Kathellyn")
-                expect(res.body.user.email).toBe("teste2@gmail.com")
+                expect(res.body.user.email).toBe("teste4@gmail.com")
             })
             .end((err, res) => {
                 if (err) return done(err);
@@ -111,9 +111,6 @@ describe("API test", () => {
     test("DELETE /users/delete/:id", (done) => {
         request(app)
           .delete(`/users/delete/${elementId}`)
-          .expect((res) => {
-              console.log(res.body)
-          })
           .expect(200)
           .end((err, res) => {
             if (err) return done(err);
