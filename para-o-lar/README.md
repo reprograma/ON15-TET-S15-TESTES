@@ -2,7 +2,7 @@
 
 <div align = "center">
 
-Turma Online 15 Todas em Tech - Back-End | Semana 14: Autenticação no *Projeto Guiado: CRUD com Banco de Dados*
+Turma Online 15 Todas em Tech - Back-End | Semana 15: Testes Automatizados no *Projeto Guiado: CRUD com Banco de Dados*
 
 </div>
 
@@ -10,7 +10,7 @@ Turma Online 15 Todas em Tech - Back-End | Semana 14: Autenticação no *Projeto
 
 <div align="justify"> 
 
-Projeto algo novo unindo a minha formação com a tecnologia. Construí uma API que realiza o CRUD (create, read, update, delete) de museus recifenses, utilizando três collections: uma para os museus, uma para a utilização de tags e outra para usuários. Acrescentando ao projeto da semana 13 serviço de autenticação JWT.
+Projeto algo novo unindo a minha formação com a tecnologia. Construí uma API que realiza o CRUD (create, read, update, delete) de museus recifenses, utilizando três collections: uma para os museus, uma para a utilização de tags e outra para usuários. Acrescentando ao projeto da semana 13 testes automatizados.
 
 </div>
 
@@ -37,6 +37,8 @@ Projeto algo novo unindo a minha formação com a tecnologia. Construí uma API 
     │    │  │  ├─ museumRoutes.js                  
     │    │  │  ├─ tagRoutes.js                  
     │    │  │  └─ userRoutes.js
+    │    │  ├─ test
+    │    │  │  └─ api.test.js   
     |    └─  app.js 
     ├─ .env.example
     ├─ .gitignore
@@ -54,6 +56,8 @@ Projeto algo novo unindo a minha formação com a tecnologia. Construí uma API 
     - Nodemon
     - Bcrypt
     - JWT
+    - Jest
+    - Supertest
 
 ## 💻 Dependências de ambiente
     - Node 
