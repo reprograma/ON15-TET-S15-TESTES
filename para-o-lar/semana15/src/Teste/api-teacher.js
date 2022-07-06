@@ -7,9 +7,9 @@ const app = require ("../app");
 let elementId;
 
 describe("API test", () =>{
-test ("GET/users/all", (done) =>{
+test ("GET/teacher/all", (done) =>{
  request(app)
-  .get("/users/all")
+  .get("/teacher/all")
   .expect(200) 
   .expect((res) =>{
     //console.log("BODY DA RESPOSTA", res.body);
@@ -23,9 +23,9 @@ test ("GET/users/all", (done) =>{
 
   });
 
-  test("POST /users/create", (done) => {
+  test("POST /teacher/create", (done) => {
     request(app)
-        .post("/users/create")
+        .post("/teacher/create")
         .expect("Content-Type", /json/)
         .send({
             name: "Alice",
@@ -44,9 +44,9 @@ test ("GET/users/all", (done) =>{
             return done();
         });
 });
-test("PATCH /users/update/:id", (done) => {
+test("PATCH /teacher/update/:id", (done) => {
     request(app)
-        .patch(`/users/update/${elementId}`)
+        .patch(`/teacher/update/${elementId}`)
         .expect("Content-Type", /json/)
         .send({
             name: "Alice Atualizado",
@@ -67,6 +67,3 @@ test("PATCH /users/update/:id", (done) => {
 
     
   })
-
-
-

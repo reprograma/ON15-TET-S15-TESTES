@@ -4,13 +4,13 @@ const cors = require('cors');
 
 require('dotenv-safe').config();
 
-const db = require('./config/database');
-const userRoutes = require('./routes/userRoutes');
+const db = require('./Config/dataBase');
+const teacherRoutes = require('./Routes/teacherRoutes');
 
 db.connect();
 
 app.use(cors());
 app.use(express.json());
-app.use("/users", userRoutes);
+app.use("/teacher", teacherRoutes);
 
 module.exports = app;
