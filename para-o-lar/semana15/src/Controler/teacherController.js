@@ -33,49 +33,7 @@ const createTeacher = async (request, response) => {
     }
  };
 
- const createAnotherTeacher = async (request, response) => {
-    //const { name, subject, school, classrooms, createAt} = request.body;
-    try {
-      const anotherTeacher = new teacherSchemas({
-            name: request.body.name,
-            subject: request.body.subject,
-            school: request.body.school,
-            classrooms: request.body.classrooms,
-            createAt: new Date()
-        })
-        const savedTeacher = await anotherTeacher.save()
-        if(savedTeacher){ 
-        response.status(201).send({
-            "message": "Another teacher created successfully",
-            savedTeacher
-        })
-    }
-} catch(err) {
-     console.error(err);
-    }
- };
-
- const createmore = async (request, response) => {
-    //const { name, subject, school, classrooms, createAt} = request.body;
-    try {
-      const moreTeacher = new teacherSchemas({
-            name: request.body.name,
-            subject: request.body.subject,
-            school: request.body.school,
-            classrooms: request.body.classrooms,
-            createAt: new Date()
-        })
-        const savedTeacher = await moreTeacher.save()
-        if(savedTeacher){ 
-        response.status(201).send({
-            "message": "More teacher created",
-            savedTeacher
-        })
-    }
-} catch(err) {
-     console.error(err);
-    }
- };
+ 
  const updateTeacher = async ( request, response) => {
     try {
        const findTeacher = await teacherSchemas.findById(request.params.id)
@@ -119,8 +77,6 @@ const createTeacher = async (request, response) => {
 module.exports = {
     getAllTeacher,
     createTeacher,
-    createAnotherTeacher,
     updateTeacher,
-    createmore,
     deleteTeacher
 }
