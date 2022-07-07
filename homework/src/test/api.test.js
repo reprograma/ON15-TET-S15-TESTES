@@ -3,7 +3,7 @@ const app = require('../app')
 
 
 describe("API Order test", () => {
-    //get all test
+    //getAll test
     test("GET /order/all", (done) => {
         request(app)
             .get("/order/all")
