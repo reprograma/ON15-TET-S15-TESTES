@@ -11,12 +11,12 @@ test ("GET/teacher/all", (done) =>{
  request(app)
   .get("/teacher/all")
   .expect(200) 
-  .expect((res) =>{
+  .expect((response) =>{
     //console.log("BODY DA RESPOSTA", res.body);
-   expect(res.body.length).not.toBe(0);
+   expect(response.body.length).not.toBe(0);
 
   })
-  .end((err,res) => {
+  .end((err,response) => {
     if(err) return done(err);
     return done();
   });
@@ -33,12 +33,12 @@ test ("GET/teacher/all", (done) =>{
             password: "minhasenha"
         })
         .expect(201)
-        .end((err, res) => {
-            console.log("BODY DA RESPOSTA", res.body)
+        .end((err, response) => {
+            console.log("BODY DA RESPOSTA", response.body)
             if(err) return done(err);
-            console.log("ID DO USUÁRIO RECÉM CRIADO", res.body.savedUser._id)
+            console.log("ID DO USUÁRIO RECÉM CRIADO", response.body.savedteacher._id)
             console.log("VARIAVEL DE ID VAZIA", elementId)
-            elementId = res.body.savedUser._id;
+            elementId = res.body.savedTeacher._id;
             console.log("VARIAVEL DE ID PREENCHIDA", elementId)
 
             return done();
@@ -54,11 +54,11 @@ test("PATCH /teacher/update/:id", (done) => {
         })
         .expect(200)
         .expect((res) =>{
-            expect(res.body.savedUser._id).toBe(elementId);
-            expect(res.body.savedUser.name).toBe("Alice Atualizado");
-            expect(res.body.savedUser.email).toBe("aliceatualizado@email.com");
+            expect(res.body.savedTeacher._id).toBe(elementId);
+            expect(res.body.savedTeacher.name).toBe("Alice Atualizado");
+            expect(res.body.savedTeacher.email).toBe("aliceatualizado@email.com");
         })
-        .end((err, res) => {
+        .end((err, response) => {
             if(err) return done(err);
             return done();
         })
@@ -67,3 +67,18 @@ test("PATCH /teacher/update/:id", (done) => {
 
     
   })
+
+  test("DELETE /teacher/delete/:id", (done) => {
+    request(app)
+      .delete(`/teacher/delete/${elementId}`)
+      .expect("Content-Type", /json/)
+      .expect(200)
+      .expect((response) => {
+        console.log(response.body)
+        expect(response.body.findByIdAndDelete.email).toBe("aliceatualizado@email.com");
+      })
+      .end((err, response) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
