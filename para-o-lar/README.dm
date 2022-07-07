@@ -1,0 +1,1 @@
+O exercício da semana consistia na criação de testes para uma API. Reutilizei a API de músicas criada na semanda 12.

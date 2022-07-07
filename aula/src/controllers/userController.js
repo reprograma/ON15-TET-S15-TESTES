@@ -58,7 +58,8 @@ const deleteUserById = async (req, res) => {
     await userFound.delete()
 
     return res.status(200).json({
-      mensagem: `Usuário '${userFound.email}' deletada com sucesso!`
+      mensagem: `Usuário '${userFound.email}' deletada com sucesso!`,
+      userFound
     })
 
   } catch (err) {

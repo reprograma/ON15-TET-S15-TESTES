@@ -8,7 +8,7 @@ let elementId; //pra fazer update e delete precisamos do id
 describe("API test", () => {  //agrupa vários testes
     // testar primeiro a rota GET
 
-    test("GET /users/all", (done) => {
+    test("GET /users/all", (done) => { //descrição do teste unitário como primeiro parâmetro; função anônima como segundo no done
          request(app) // conexão acontece
             .get("/users/all") //teste fazer um GET, é a requisição
             .expect(200) // Uma função que diz o que esperamos que aconteça, espero que o status seja 200 e não 500, validação do status code
@@ -25,14 +25,14 @@ describe("API test", () => {  //agrupa vários testes
 
     test("POST /users/create", (done) => {
         request(app)
-            .post("/users/create")
+            .post("/users/create") //testa a rota
             .expect("Content-Type", /json/)
-            .send({     // Como faziamos no post, no raw, json
+            .send({     // Como faziamos no postman, no raw, json //teste dos dados
                 name: "Paula",
                 email: "paula@email",
                 password: "senhamuitodificl"
             })
-            .expect(201)
+            .expect(201) //teste do status
             .end((err, res) => {
                 // console.log("body da resposta", res.body) //os consoles são pra gente ver a res.body mudando
                 if(err) return done(err); // se o if tem um único retorno o uso de chaves é facultativo
@@ -62,18 +62,22 @@ describe("API test", () => {  //agrupa vários testes
                 if(err) return done(err); 
                 return done();
             });
-    })
+    });
 
-    // test("DELETE /users/delete", (done) => {
-    //     request(app)
-    //         .delete("/users/delete")
-    //         .expect()
-    
-    //         .end((err, res) => {
-    //             if(err) return done(err)
-    //             return done();
-    //         });
-    // })
+    test("DELETE /users/delete/:id", (done) => {
+        request(app)
+            .delete(`/users/delete/${elementId}`)
+            .expect("Content-Type", /json/)
+            .expect(200)
+            .expect((res) => {
+                console.log(res.body)
+                expect(res.body.userFound.email).toBe("paulaatualizado@gmail.com")
+            })
+            .end((err, res) => {
+                if(err) return done(err)
+                return done();
+            });
+    });
 
 
 });

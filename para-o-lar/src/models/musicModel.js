@@ -3,24 +3,24 @@ const mongoose = require("mongoose")
 const MusicSchema = mongoose.Schema({
     _id: {
         type: mongoose.Types.ObjectId,
-        default: mongoose.Types.ObjectId
+        default: mongoose.Types.ObjectId,
     },
-    artista: {
+    artist: {
         type: String,
         required: true
     },
-    compositor: [String],
-    titulo: {
+    composer: [String],
+    title: {
         type: String,
         required: true,
         unique: true
     },
-    // categoria: [String],
-    // anoDeLancamento: Date,
-    // clipe: Boolean,
-    // imagens: [String],
-    // curtidas: Number
+    genre: [String],
+    realeaseYear: Date,
+    // clip: Boolean,
+    images: [String],
+    likes: Number
 }, { timestamps  : true })
 
-const Model = mongoose.model("musica", MusicSchema)
+const Model = mongoose.model("music", MusicSchema)
 module.exports = Model
