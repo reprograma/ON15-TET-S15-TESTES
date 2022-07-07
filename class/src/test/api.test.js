@@ -1,19 +1,16 @@
 const request = require("supertest");
 const app = require("../app");
 
-//jest.setTimeout(30500);
-//jest.useRealTimers();
-
-let elementId;
+let elementId //var criada pra receber o id criado
 
 describe("API test", () => {
     // agrupa vários testes
-    // testar primeiro a rota GET
+    // testar get all
 
     test("GET /users/all", (done) => {
-        request(app)
-            .get("/users/all")
-            .expect(200)
+        request(app) // chama o supertest e o app
+            .get("/users/all") // testa conexão
+            .expect(200) // resposta esperada
             .expect((res) => {
                 expect(res.body.length).not.toBe(0);
             })
@@ -35,6 +32,7 @@ describe("API test", () => {
             .expect(201)
             .end((err, res) => {
                 if(err) return done(err);
+                // recebe a reatribuição com o id gerado na criação
                 elementId = res.body.savedUser._id;
                 return done();
             });
@@ -49,6 +47,7 @@ describe("API test", () => {
                 email: "paulaatualizado@email.com"
             })
             .expect(200)
+             // conferir se foi atualizado
             .expect((res) =>{
                 expect(res.body.savedUser._id).toBe(elementId);
                 expect(res.body.savedUser.name).toBe("Paula Atualizado");

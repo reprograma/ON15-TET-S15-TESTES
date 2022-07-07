@@ -1,4 +1,4 @@
-const app = require('./src/app');
+const app = require('./class/src/app');
 const PORT = process.env.PORT;
 // 3000, 6000, 6060, 8080, 8088
 
