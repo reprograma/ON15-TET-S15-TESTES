@@ -56,12 +56,21 @@ const updateUser = async (req, res) => {
 
 
 const deleteUser = async (req, res) => {
-    const user = await UserSchema.findByIdAndDelete(req.params.id)
-    if(!user) {
-        return res.status(404).send({ message: "Usuário não encontrado" })
+    try {
+        const user = await UserSchema.findByIdAndDelete(req.params.id)
+        if(!user) {
+            return res.status(404).send({ message: "Usuário não encontrado" })
+        }
+        await user.remove()
+        
+        return res.status(200).send({ 
+            message: "Usuário deletado", user 
+        })        
+    } catch (error) {
+        return res.status(400).send({
+            "mensagem": err.message
+          })
     }
-    await user.remove()
-    res.status(200).send({ message: "Usuário deletado", user })
 }
 
 module.exports = {
