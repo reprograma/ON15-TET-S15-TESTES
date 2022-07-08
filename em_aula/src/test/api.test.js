@@ -1,8 +1,8 @@
 const request = require("supertest");
 const app = require("../app");
 
-//jest.setTimeout(30500);
-//jest.useRealTimers();
+// jest.setTimeout(30500);
+// jest.useRealTimers();
 
 let elementId;
 
@@ -15,7 +15,7 @@ describe("API test", () => {
             .get("/users/all")
             .expect(200)
             .expect((res) => {
-                expect(res.body.length).not.toBe(0);
+                expect(res.body.length).toBe(0);
             })
             .end((err, res) => {
                 if (err) return done(err);
