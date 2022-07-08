@@ -1,7 +1,7 @@
 {
   "name": "projeto-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Turma Online Todas em Tech - Back-end | Semana 15: Introdução: Automações de Testes",
   "main": "server.js",
   "scripts": {
     "test": "jest",
@@ -23,5 +23,13 @@
     "jest": "^28.1.2",
     "nodemon": "^2.0.14",
     "supertest": "^6.2.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuizaTempobono/ON15-TET-S15-TESTES.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LuizaTempobono/ON15-TET-S15-TESTES/issues"
+  },
+  "homepage": "https://github.com/LuizaTempobono/ON15-TET-S15-TESTES#readme"
 }
