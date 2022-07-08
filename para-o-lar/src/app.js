@@ -6,7 +6,7 @@ app.use(cors())
 
 require("dotenv-safe").config()
 
-const db = require("./database/mongoConfig")
+const db = require("./config/mongoConfig")
 db.connect()
 
 
