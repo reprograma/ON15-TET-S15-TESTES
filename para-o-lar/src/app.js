@@ -11,6 +11,6 @@ db.connect();
 
 app.use(cors());
 app.use(express.json());
-app.use("/artisit", artistRoutes);
+app.use("/artist", artistRoutes);
 
 module.exports = app;
