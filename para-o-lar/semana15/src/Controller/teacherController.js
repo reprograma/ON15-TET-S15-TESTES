@@ -1,5 +1,7 @@
-const { response } = require("../app");
-const teacherSchemas = require("../Models/teacherSchemas")
+//const { response } = require("../app");
+//const teacherSchemas = require("../Model/teacherSchema")
+const teacherSchema = require("../Model/teacherSchema");
+const bcrypt = require("bcrypt");
 
 const getAllTeacher = async (request, response) => {
     try {
@@ -13,7 +15,7 @@ const getAllTeacher = async (request, response) => {
 const createTeacher = async (request, response) => {
     //const { name, subject, school, classrooms, createAt} = request.body;
     try {
-      const newTeacher = new teacherSchemas({
+      const newTeacher = new teacherSchema({
             name: request.body.name,
             subject: request.body.subject,
             school: request.body.school,
@@ -36,7 +38,7 @@ const createTeacher = async (request, response) => {
  
  const updateTeacher = async ( request, response) => {
     try {
-       const findTeacher = await teacherSchemas.findById(request.params.id)
+       const findTeacher = await teacherSchema.findById(request.params.id)
        if(!findTeacher){
         response.status(404).send({
             "message": "teacher not found",
@@ -47,11 +49,11 @@ const createTeacher = async (request, response) => {
        findTeacher.name = request.body.name || findTeacher.name
        findTeacher.subject = request.body.subject || findTeacher.subject
 
-       console.log("Note updated", findTeacher)
+       console.log("Teacher updated", findTeacher)
        const savedTeacher = await findTeacher.save()
 
        response.status(200).send({
-        "message": "Note updated successfully",
+        "message": "Teacher updated successfully",
          savedTeacher
        })
     } catch (error) {
@@ -61,7 +63,7 @@ const createTeacher = async (request, response) => {
 
  const deleteTeacher = async (request,response) => {
     try {
-        const deletedTeacher = await teacherSchemas.findByIdAndDelete(request.params.id)
+        const deletedTeacher = await teacherSchema.findByIdAndDelete(request.params.id)
 
         response.status(200).send({
             "message": "teacher deleted",

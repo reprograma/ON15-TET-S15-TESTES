@@ -8,14 +8,13 @@ let elementId;
 
 describe("API test", () =>{
 test ("GET/users/all", (done) =>{
- request(app)
-  .get("/users/all")
-  .expect(200) 
-  .expect((res) =>{
-    //console.log("BODY DA RESPOSTA", res.body);
-   expect(res.body.length).not.toBe(0);
+    request(app)
+    .get("/users/all")
+    .expect(200)
+    .expect((res) => {
+    expect(res.body.length).toBe(0);
+    })
 
-  })
   .end((err,res) => {
     if(err) return done(err);
     return done();
@@ -67,6 +66,23 @@ test("PATCH /users/update/:id", (done) => {
 
     
   })
+
+  
+  test("DELETE /users/delete/:id", (done) => {
+    request(app)
+      .delete(`/users/delete/${elementId}`)
+      .expect("Content-Type", /json/)
+      .expect(200)
+      .expect((res) => {
+        console.log(res.body)
+        expect(res.body.userFound.email).toBe("aliceatualizado@email.com");
+      })
+      .end((err, res) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
+
 
 
 

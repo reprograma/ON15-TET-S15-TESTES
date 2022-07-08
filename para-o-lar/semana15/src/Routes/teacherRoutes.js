@@ -7,7 +7,7 @@ router.get("/all", controller.getAllTeacher);
 
 router.post("/create", controller.createTeacher);
 
-router.put("/update/:id", controller.updateTeacher);
+router.patch("/update/:id", controller.updateTeacher);
 
 router.delete("/delete/:id", controller.deleteTeacher);
 
