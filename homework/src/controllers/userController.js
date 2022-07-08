@@ -7,7 +7,7 @@ const createUser = async (req, res) => {
 
     try {
         const user = new UserSchema(req.body)
-        
+
         const emailExists = await UserSchema.exists({ email: req.body.email })
         if(emailExists) {
          return res.status(400).send({
@@ -37,16 +37,21 @@ const getAll = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-    const user = await UserSchema.findById(req.params.id)
-    if(!user) {
-        return res.status(404).send({ message: "Usuário não encontrado" })
+    try {
+        const user = await UserSchema.findById(req.params.id)
+        if(!user) {
+            return res.status(404).send({ message: "Usuário não encontrado" })
+        }
+        
+        user.name = req.body.name || user.name
+        user.email = req.body.email || user.email
+        
+        const updatedUser = await user.save()
+        return res.status(200).send(updatedUser)        
+    } catch (error) {
+         console.error(error)
+        
     }
-
-    user.name = req.body.name || user.name
-    user.email = req.body.email || user.email
-    
-    const updatedUser = await user.save()
-    res.status(200).send(updatedUser)
 }
 
 
