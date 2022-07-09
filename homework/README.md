@@ -334,7 +334,7 @@ Para esta API realizei testes no CRUD do `DELETE` (user) e do `pedido` (order). 
 1. Entre na pasta onde você deseja clonar o repositório. Abra o **git** nela e digite: 
 
     ```bash
-    $ git clone https://github.com/elizapimentel/ON15-TET-S14-AUTH.git
+    $ git clone https://github.com/elizapimentel/ON15-TET-S15-TESTES.git
      ```
 
 2. Digite a linha abaixo para entrar na branch correta: 
@@ -346,7 +346,7 @@ Para esta API realizei testes no CRUD do `DELETE` (user) e do `pedido` (order). 
 3. Digite a linha abaixo para entrar na pasta correta: 
 
     ```bash
-    $ cd para-o-lar/
+    $ cd homework/
      ```
     
 4. Escreva a seguinte linha para instalar as dependências utilizadas nesse projeto: 
