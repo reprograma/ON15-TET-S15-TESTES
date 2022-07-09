@@ -12,15 +12,6 @@ const getAll = async (req, res) => {
 
 const createMovie = async (req, res) => {
     try {
-        // const newMovie = new MovieSchema({
-        //     Title: req.body.Title,
-        //     Year: req.body.Year,
-        //     Genre: req.body.Genre,
-        //     Runtime: req.body.Runtime,
-        //     Director: req.body.Director,
-        //     Actors: req.body.Actors,
-        //     Plot: req.body.Plot
-        // })
         const newMovie = new MovieSchema(req.body)
         const savedMovie = await newMovie.save()
         res.status(201).send({
