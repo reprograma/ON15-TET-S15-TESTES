@@ -1,0 +1,2 @@
+Olá professora, no momento, não consegui assimilar bem o conteúdo dessa semana, por isso meu exercício foi baseado em de uma colega. Lendo o código, percebi que não estou tão por fora graças a Deus :)
+A estrutura MVC e os comando no git bash e as instalações e alguns comando no código, eu consigo fazer sozinha, Mas em relação aos testes em si, não consigo.
